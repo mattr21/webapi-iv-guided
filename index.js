@@ -1,5 +1,11 @@
+// Step 3 - in terminal, run 'yarn add dotenv'
+// Step 4 - require dotenv
+require('dotenv').config();
 const server = require('./api/server.js');
 
-server.listen(4000, () => {
-  console.log('\n*** Server Running on http://localhost:4000 ***\n');
+// Step 1 - make the port dynamic
+const port = process.env.PORT || 4000;
+const greeting = process.env.GREETING;
+server.listen(port, () => {
+  console.log(`\n*** ${greeting} http://localhost:${port} ***\n`);
 });
